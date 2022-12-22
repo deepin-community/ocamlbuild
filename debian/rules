@@ -1,0 +1,50 @@
+#!/usr/bin/make -f
+# See debhelper(7) (uncomment to enable)
+# output every command that modifies files on the build system.
+#export DH_VERBOSE = 1
+
+include /usr/share/dpkg/architecture.mk
+include /usr/share/ocaml/ocamlvars.mk
+
+%:
+	dh $@ --with ocaml
+# TODO: Add a lintian check: if any package contains .cmi files then it should
+# have a Depends: ocaml-base-nox or something like that (ask the list first).
+
+# see https://pkg-ocaml-maint.alioth.debian.org/ocaml_packaging_policy.txt
+OCAMLABI = $(shell ocamlc -version)
+# to test a bytecode build on an architecture with ocamlopt, set this to "yes"
+BYTECODE = $(shell [ -x /usr/bin/ocamlopt ] || echo yes)
+OCAMLRUN = $(if $(BYTECODE),ocaml-base-nox-$(OCAMLABI))
+OCAML_NATIVE = $(if $(BYTECODE),false,true)
+
+OCAMLBUILD_CFG = \
+ OCAMLBUILD_PREFIX=/usr \
+ OCAMLBUILD_BINDIR=/usr/bin \
+ OCAMLBUILD_LIBDIR=/usr/lib/ocaml \
+ OCAMLBUILD_MANDIR=/usr/share/man
+
+# these variables from your shell can interfere with tests. it should not be
+# necessary for buildds, but do it here for convenience.
+unexport OCAMLPARAM
+unexport OCAML_TOPLEVEL_PATH
+
+ifeq ($(DEB_HOST_ARCH),powerpc)
+# Suppress "bss-plt forced" warnings from ld
+# see https://github.com/ocaml/ocamlbuild/issues/254
+export PATH := $(CURDIR)/debian/bin:$(PATH)
+endif
+
+override_dh_auto_configure:
+	$(MAKE) $(OCAMLBUILD_CFG) OCAML_NATIVE=$(OCAML_NATIVE) configure
+
+override_dh_auto_install:
+	dh_auto_install -- CHECK_IF_PREINSTALLED=false
+	cd debian/ocamlbuild/usr/bin && rm -f ocamlbuild.byte ocamlbuild.native
+
+override_dh_auto_clean:
+	dh_auto_clean
+	find . -name '*.cmti' -delete
+
+override_dh_gencontrol:
+	dh_gencontrol -- -VF:OCamlRun="$(OCAMLRUN)"

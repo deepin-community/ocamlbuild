@@ -1,0 +1,31 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: ocamlbuild
+Source: https://github.com/ocaml/ocamlbuild
+
+Files: *
+Copyright: 2007-2016 Nicolas Pouillard, Berke Durak, projet Gallium, INRIA Rocquencourt
+           2007-2016 Institut National de Recherche en Informatique et en Automatique
+License: LGPL-2 with OCamlbuild exception
+
+Files: debian/*
+Copyright: 2016 Ximin Luo <infinity0@debian.org>
+License: LGPL-2 with OCamlbuild exception
+
+License: LGPL-2 with OCamlbuild exception
+ OCamlbuild is distributed under the terms of the GNU Library General
+ Public License version 2. On Debian systems, the complete text of this
+ license can be found in "/usr/share/common-licenses/LGPL-2".
+ .
+ As a special exception to the GNU Library General Public License, you
+ may link, statically or dynamically, a "work that uses OCamlbuild"
+ with a publicly distributed version of OCamlbuild to produce an
+ executable file containing portions of OCamlbuild, and distribute
+ that executable file under terms of your choice, without any of the
+ additional requirements listed in clause 6 of the GNU Library General
+ Public License.  By "a publicly distributed version of OCamlbuild",
+ we mean either the unmodified Library as distributed by INRIA, or a
+ modified version of OCamlbuild that is distributed under the
+ conditions defined in clause 2 of the GNU Library General Public
+ License.  This exception does not however invalidate any other reasons
+ why the executable file might be covered by the GNU Library General
+ Public License.

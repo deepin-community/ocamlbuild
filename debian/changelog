@@ -1,0 +1,80 @@
+ocamlbuild (0.14.0-2) unstable; urgency=medium
+
+  * Team upload
+  * Include ocamlvars.mk to avoid failure in dh_dwz
+  * Bump debhelper compat level to 13
+  * Bump Standards-Version to 4.5.0
+  * Add Rules-Requires-Root: no
+
+ -- Stéphane Glondu <glondu@debian.org>  Tue, 11 Aug 2020 17:58:42 +0200
+
+ocamlbuild (0.14.0-1) unstable; urgency=medium
+
+  [ Stéphane Glondu ]
+  * Team upload
+  * New upstream release
+  * Update Vcs-*
+  * Bump Standards-Version to 4.4.0
+  * Bump debhelper compat level to 12
+
+  [ Ralf Treinen ]
+  * Package description: remove strange characters, minor improvements of
+    wording (closes: #876000)
+
+ -- Stéphane Glondu <glondu@debian.org>  Sun, 04 Aug 2019 05:28:26 +0200
+
+ocamlbuild (0.11.0-3) unstable; urgency=medium
+
+  * Upload to unstable.
+  * Update condition-nativeonly-tests.patch to be cleaner.
+
+ -- Ximin Luo <infinity0@debian.org>  Sat, 16 Sep 2017 13:51:37 +0200
+
+ocamlbuild (0.11.0-2) experimental; urgency=medium
+
+  * Only run native tests if ocamlopt is available, fixes FTBFS on arches
+    without ocamlopt.
+  * Suppress "bss-plt forced" warnings from ld, fixes FTBFS on powerpc.
+
+ -- Ximin Luo <infinity0@debian.org>  Sun, 30 Jul 2017 14:13:35 +0200
+
+ocamlbuild (0.11.0-1) experimental; urgency=medium
+
+  * New upstream release.
+  * Update to latest Standards-Version; no changes required.
+
+ -- Ximin Luo <infinity0@debian.org>  Sat, 29 Jul 2017 16:56:50 +0200
+
+ocamlbuild (0.10.1-1) experimental; urgency=medium
+
+  * Add an explicit versioned dependency on ocaml-nox to work around
+    bug involving Debian build dependency parsing. (Closes: #843868)
+  * New upstream release.
+
+ -- Ximin Luo <infinity0@debian.org>  Sat, 04 Mar 2017 15:34:54 +0100
+
+ocamlbuild (0.9.3-3) experimental; urgency=medium
+
+  * Force a rebuild against OCaml 4.03.0 on all architectures.
+    (Closes: #842713)
+
+ -- Ximin Luo <infinity0@debian.org>  Wed, 02 Nov 2016 13:28:14 +0100
+
+ocamlbuild (0.9.3-2) experimental; urgency=medium
+
+  * Rebuild against OCaml 4.03.0.
+  * Use dh_ocaml to add the correct OCaml library dependencies.
+
+ -- Ximin Luo <infinity0@debian.org>  Mon, 31 Oct 2016 08:00:20 +0100
+
+ocamlbuild (0.9.3-1) experimental; urgency=medium
+
+  * New upstream release.
+
+ -- Ximin Luo <infinity0@debian.org>  Thu, 20 Oct 2016 20:38:36 +0200
+
+ocamlbuild (0.9.2-1) experimental; urgency=medium
+
+  * Initial release (Closes: #839099)
+
+ -- Ximin Luo <infinity0@debian.org>  Thu, 20 Oct 2016 18:51:10 +0200

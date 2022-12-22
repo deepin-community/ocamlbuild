@@ -1,0 +1,39 @@
+Source: ocamlbuild
+Section: ocaml
+Priority: optional
+Maintainer: Debian OCaml Maintainers <debian-ocaml-maint@lists.debian.org>
+Uploaders: Ximin Luo <infinity0@debian.org>
+Build-Depends:
+ debhelper-compat (= 13),
+ dh-ocaml,
+ ocaml-nox (>= 4.04.0),
+ ocaml-findlib (>= 1.7.3),
+ libfindlib-ocaml-dev (>= 1.7.3),
+Standards-Version: 4.5.0
+Rules-Requires-Root: no
+Homepage: https://github.com/ocaml/ocamlbuild/
+Vcs-Git: https://salsa.debian.org/ocaml-team/ocamlbuild.git
+Vcs-Browser: https://salsa.debian.org/ocaml-team/ocamlbuild
+
+Package: ocamlbuild
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${F:OCamlRun}, ${ocaml:Depends}
+Provides: ${ocaml:Provides}
+Replaces: libfindlib-ocaml (<< 1.6.3-1), ocaml-nox (<< 4.03.0-1)
+Breaks: libfindlib-ocaml (<< 1.6.3-1), ocaml-nox (<< 4.03.0-1)
+Description: Build tool for building OCaml libraries and programs
+ OCamlbuild is a generic build tool, which has built-in rules for building OCaml
+ libraries and programs.
+ .
+ It was distributed as part of the OCaml distribution for OCaml versions
+ between 3.10.0 and 4.02.3. Starting from OCaml 4.03, it is now released
+ separately.
+ .
+ Its job is to determine the sequence of calls to the compiler with the
+ right set of command-line flags needed to build your OCaml-centric
+ software project.
+ .
+ It was designed as a generic build system (it is in fact not OCaml-specific),
+ but also to be expressive enough to cover the specifics of the OCaml language
+ that make writing good Makefiles difficult, such as the dreaded "units Foo and
+ Bar make inconsistent assumptions about Baz" error.
