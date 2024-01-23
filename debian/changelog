@@ -1,3 +1,16 @@
+ocamlbuild (0.14.0-3) unstable; urgency=medium
+
+  [ Stéphane Glondu ]
+  * Team upload
+  * Depend on ocaml-base-$ABI instead of ocaml-base-nox-$ABI
+  * Bump Standards-Version to 4.6.0
+
+  [ Debian Janitor ]
+  * Set upstream metadata fields: Bug-Database, Bug-Submit, Repository,
+    Repository-Browse.
+
+ -- Stéphane Glondu <glondu@debian.org>  Thu, 20 Jan 2022 13:05:28 +0100
+
 ocamlbuild (0.14.0-2) unstable; urgency=medium
 
   * Team upload
