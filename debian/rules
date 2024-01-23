@@ -15,7 +15,7 @@ include /usr/share/ocaml/ocamlvars.mk
 OCAMLABI = $(shell ocamlc -version)
 # to test a bytecode build on an architecture with ocamlopt, set this to "yes"
 BYTECODE = $(shell [ -x /usr/bin/ocamlopt ] || echo yes)
-OCAMLRUN = $(if $(BYTECODE),ocaml-base-nox-$(OCAMLABI))
+OCAMLRUN = $(if $(BYTECODE),ocaml-base-$(OCAMLABI))
 OCAML_NATIVE = $(if $(BYTECODE),false,true)
 
 OCAMLBUILD_CFG = \
